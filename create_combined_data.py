@@ -55,7 +55,8 @@ tracking_with_possession = pd.merge(
 )
 
 tracking_possession_team = tracking_with_possession[
-    tracking_with_possession["club"] == tracking_with_possession["possessionTeam"]
+    (tracking_with_possession["club"] == tracking_with_possession["possessionTeam"])
+    & (tracking_with_possession["frameType"] == "BEFORE_SNAP")
 ]
 
 total_distance_possession_team = (
